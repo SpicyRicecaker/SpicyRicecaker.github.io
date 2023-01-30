@@ -1,20 +1,45 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import BaseHead from "../components/BaseHead.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config"
+
+const games = (await Astro.glob("./games/*.{md,mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+)
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			This is my personal website. Checkout my projects below:
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      Hello, I'm Andy. I'm making one game every week for the rest of this year.
+      <ul>
+        {
+          games.map((game) => (
+            <li>
+              <time datetime={game.frontmatter.startDate}>
+                {new Date(game.frontmatter.startDate).toLocaleDateString(
+                  "en-us",
+                  {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  }
+                )}
+              </time>
+              <a href={game.frontmatter.link}>{game.frontmatter.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+    <Footer />
+  </body>
 </html>

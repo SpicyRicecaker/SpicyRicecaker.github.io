@@ -6,4 +6,4 @@ updatedDate: "November 11 2022"
 # heroImage: "/placeholder-about.jpg"
 ---
 
-I'm currently a student at UCR
+I'm currently a student at Oregon State University.
