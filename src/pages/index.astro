@@ -34,7 +34,7 @@ const games = (await Astro.glob("./games/*.{md,mdx}")).sort(
                   }
                 )}
               </time>
-              <a href={game.frontmatter.link}>{game.frontmatter.title}</a>
+              <a href={game.frontmatter.link}>{game.frontmatter.title}</a> <i>{game.frontmatter.description}</i>
             </li>
           ))
         }
