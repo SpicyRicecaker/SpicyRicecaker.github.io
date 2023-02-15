@@ -4,41 +4,85 @@ import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config"
 
-const games = (await Astro.glob("./games/*.{md,mdx}")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf()
-)
+let gamesByYear: Map<number, any[]> = await (async (): Promise<
+  Map<number, any[]>
+> => {
+  let m: Map<number, any[]> = new Map()
+  ;(await Astro.glob("./games/*.{md,mdx}"))
+    .sort(
+      (a: any, b: any) =>
+        new Date(b.frontmatter.startDate).valueOf() -
+        new Date(a.frontmatter.startDate).valueOf()
+    )
+    // we don't have to sort any more after this step because we already sorted
+    // before
+    .forEach((g: any) => {
+      const y = new Date(g.frontmatter.startDate).getFullYear()
+      if (m.has(y)) {
+        m.get(y)!.push(g.frontmatter)
+      } else {
+        m.set(y, [g.frontmatter])
+      }
+    })
+  return m
+})()
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      ul {
+        list-style-type: none;
+        padding: unset;
+      }
+      ul li {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 5fr);
+      }
+      ul li div:nth-child(1) {
+        font-style: italic;
+        color: #595959;
+      }
+      ul li a:visited {
+        color: #8e32dc;
+      }
+    </style>
   </head>
   <body>
     <Header title={SITE_TITLE} />
     <main>
       Hello, I'm Andy. I'm making one game every week for the rest of this year.
-      <ul>
-        {
-          games.map((game) => (
-            <li>
-              <time datetime={game.frontmatter.startDate}>
-                {new Date(game.frontmatter.startDate).toLocaleDateString(
-                  "en-us",
-                  {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  }
-                )}
-              </time>
-              <a href={game.frontmatter.link}>{game.frontmatter.title}</a> <i>{game.frontmatter.description}</i>
-            </li>
-          ))
-        }
-      </ul>
+      {
+        [...gamesByYear].reverse().map(([year, games]) => (
+          <>
+            <h2>{year}:</h2>
+            <ul>
+              {games.map((game: any) => (
+                <li>
+                  <div>
+                    <time datetime={game.startDate}>
+                      {new Date(game.startDate).toLocaleDateString("en-us", {
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </div>
+                  <div>
+                    {game.link ? (
+                      <a href={game.link}>{game.title}</a>
+                    ) : (
+                      <span style="color: lightgray">{game.title}</span>
+                    )}
+                  </div>
+                  <i>; {game.description}</i>
+                </li>
+              ))}
+            </ul>
+          </>
+        ))
+      }
     </main>
     <Footer />
   </body>
