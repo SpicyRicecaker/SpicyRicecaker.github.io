@@ -4,11 +4,11 @@ import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config"
 
-let gamesByYear: Map<number, any[]> = await (async (): Promise<
+let projectsByYear: Map<number, any[]> = await (async (): Promise<
   Map<number, any[]>
 > => {
   let m: Map<number, any[]> = new Map()
-  ;(await Astro.glob("./games/*.{md,mdx}"))
+  ;(await Astro.glob("./projects/*.{md,mdx}"))
     .sort(
       (a: any, b: any) =>
         new Date(b.frontmatter.startDate).valueOf() -
@@ -53,30 +53,30 @@ let gamesByYear: Map<number, any[]> = await (async (): Promise<
   <body>
     <Header title={SITE_TITLE} />
     <main>
-      Hello, I'm Andy. I'm making one game every week for the rest of this year.
+      Hello, I'm Andy. Here are some of the projects I've worked on:
       {
-        [...gamesByYear].reverse().map(([year, games]) => (
+        [...projectsByYear].reverse().map(([year, projects]) => (
           <>
             <h2>{year}:</h2>
             <ul>
-              {games.map((game: any) => (
+              {projects.map((project: any) => (
                 <li>
                   <div>
-                    <time datetime={game.startDate}>
-                      {new Date(game.startDate).toLocaleDateString("en-us", {
+                    <time datetime={project.startDate}>
+                      {new Date(project.startDate).toLocaleDateString("en-us", {
                         month: "short",
                         day: "numeric",
                       })}
                     </time>
                   </div>
                   <div>
-                    {game.link ? (
-                      <a href={game.link}>{game.title}</a>
+                    {project.link ? (
+                      <a href={project.link}>{project.title}</a>
                     ) : (
-                      <span style="color: lightgray">{game.title}</span>
+                      <span style="color: lightgray">{project.title}</span>
                     )}
                   </div>
-                  <i>; {game.description}</i>
+                  <i> {project.description}</i>
                 </li>
               ))}
             </ul>
