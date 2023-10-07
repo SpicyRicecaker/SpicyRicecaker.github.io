@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: 'Fixing the `cannot open source file "bits/stdc++.h" C/C++(1696)"` error for VSCode on MacOS'
+title: 'Fixing the `cannot open source file "bits/stdc++.h" C/C++ (1696)` error for VSCode on MacOS'
 description: ""
 pubDate: "October 6 2023"
 # heroImage: "/placeholder-hero.jpg"
@@ -21,7 +21,7 @@ I'll assume you already have `homebrew` installed. If not, get it at https://bre
 
 Then, open a terminal, and run the following command:
 
-```
+```shell
 brew install gcc
 ```
 
@@ -29,13 +29,13 @@ brew install gcc
 
 Run the following command 
 
-```
+```shell
 brew list gcc
 ```
 
 Now look for the line with the following format:
 
-```
+```shell
 /opt/homebrew/Cellar/gcc/X.Y.Z/include/c++/
 ```
 
@@ -43,13 +43,13 @@ Note the `X` `Y` and `Z` values and copy the directory path.
 
 Now `cd` into that directory, then the major version (`X`) subdirectory, then the `bits` subdirectory, or in one command as follows:
 
-```
+```shell
 cd /opt/homebrew/Cellar/gcc/[X.Y.Z]/include/c++/[X]/bits # X Y Z may vary
 ```
 
 Once inside the above directory, create the `stdc++.h` file.
 
-```
+```shell
 touch stdc++.h
 nano stdc++.h # or open the file with your favorite text editor
 ```
@@ -61,7 +61,7 @@ Goto https://github.com/gcc-mirror/gcc, press `t` to search files, then type `st
 I've also include the contents of the file below:
 (found by searching for `stdc++.h` in the `gcc-mirror/gcc` repository on github) 
 
-```
+```c++
 // C++ includes used for precompiling -*- C++ -*-
 
 // Copyright (C) 2003-2023 Free Software Foundation, Inc.
@@ -305,13 +305,13 @@ Now paste into the `nano` editor (or your editor of choice) by pressing `control
 
 First, find the path of the binary. Open a terminal and type
 
-```
+```shell
 brew list
 ```
 
 again. Find the line that looks like 
 
-```
+```shell
 /opt/homebrew/Cellar/gcc/X.Y.Z/bin/g++-X
 ```
 
@@ -333,7 +333,7 @@ Now close and open vscode again. Intellisense should now be working, and so shou
 
 If you want to compile your single file cpp program inside the terminal and run it, simply make sure you're in the same directory as your file and type the following
 
-```
+```shell
 g++-13 [yourfile.cpp] && ./a.out
 ```
 
