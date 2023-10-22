@@ -7,3 +7,7 @@ updatedDate: "November 11 2022"
 ---
 
 I'm currently a student at Oregon State University.
+
+Feel free to reach me at the following email: andy.shengdong.li@gmail.com
+
+Find my socials at https://linktr.ee/spicy_ricecaker.
