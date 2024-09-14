@@ -16,7 +16,9 @@ Maybe the essence of the game is the moment when you're even with your lane oppo
 
 When you or your teammates make mistakes, the game is not over, it merely increases in difficulty. Falling behind is merely the process of the Elden Ring boss having harder-hitting moves, or maybe even new moves. But you still have the power to adapt and face those challenges all the same. 
 
-As a certain legendary Yasuo player known as Brohan once said, "I'm not so weak as to flame my teammates. The real fight is the fight within yourself."
+As a certain legendary Yasuo player known as Brohan once said:
+
+> I wish I could flame. But I'm not as weak as you guys. Like, sadly. I'm so self-aware aware every single time I flame, I'm basically just running away from the real fight within myself.
 
 So the next time you want to start typing, or start focusing on every other lane and role except for your own, question if that's what you really want within. Because even in the face of a towering mountain, you still have your legs. And a vivid painting is built up from thousands of strokes, each little line combining together to characterize the whole scene. 
 
