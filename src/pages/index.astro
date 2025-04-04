@@ -8,11 +8,11 @@ let projectsByYear: Map<number, any[]> = await (async (): Promise<
   Map<number, any[]>
 > => {
   let m: Map<number, any[]> = new Map()
-  ;(await Astro.glob("./projects/*.{md,mdx}"))
+  Object.values(import.meta.glob("./projects/*.{md,mdx}", { eager: true }))
     .sort(
       (a: any, b: any) =>
         new Date(b.frontmatter.startDate).valueOf() -
-        new Date(a.frontmatter.startDate).valueOf()
+        new Date(a.frontmatter.startDate).valueOf(),
     )
     // we don't have to sort any more after this step because we already sorted
     // before
@@ -28,7 +28,7 @@ let projectsByYear: Map<number, any[]> = await (async (): Promise<
 })()
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
