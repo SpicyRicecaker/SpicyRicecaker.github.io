@@ -6,6 +6,8 @@ pubDate: "Aug 17 2025"
 # heroImage: "/placeholder-hero.jpg"
 ---
 
+*Update: Some of the things that I wrote in this article about visualization and how it can help with pornography addiction I no longer believe in. See my blog post for further details.*
+
 In today's world, you can no longer rely on the min-maxing of certain brain chemicals to live a fulfilling life.
 
 It used to be that you'd get a dopamine hit from stumbling upon a grove of fruit trees that would feed your entire tribe for a week.
