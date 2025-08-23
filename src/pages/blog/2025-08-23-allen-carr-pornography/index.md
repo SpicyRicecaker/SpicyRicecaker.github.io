@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPost.astro"
+layout: "../../../layouts/BlogPost.astro"
 title: "Allen Carr's Easy Way to Quit Smoking, Applied to Pornography"
 description: "What is day without darkness? What is love without light?"
 pubDate: "Aug 17 2025"
@@ -14,16 +14,16 @@ What finally made Allen Carr's method click for me is the analogy he made in his
 
 Humans really like to see the world in black and white. It is the easiest thing to do. It is the natural thing to do.
 
-![alt text](f1.svg)
-![alt text](f2.svg)
+![alt text](_f1.svg)
+![alt text](_f2.svg)
 
 As soon as black and white turn to gray, all hell breaks lose. 
 
-![alt text](f3.svg)
+![alt text](_f3.svg)
 
 Hell, even black and white on the same screen has that same effect.
 
-![alt text](f4.svg)
+![alt text](_f4.svg)
 
 We know this from the movies. From stories. From characters. A lot of good stories nowadays are written in a way so that the villain has human traits. Has their own beliefs that they're fighting for. Most of the time, we can believe that given different circumstances, the villain could've acted for the good of society. We can come to an understanding about their actions. That there is some good in their heart.
 
@@ -37,11 +37,11 @@ I'd like to take this moment again to visualize Allen Carr's argument in his [bb
 
 Before applying the easy method:
 
-![alt text](f5.svg)
+![alt text](_f5.svg)
 
 After applying the easy method:
 
-![alt text](f6.svg)
+![alt text](_f6.svg)
 
 Basically, so long as **one single white chip remains** on the positive side, you might always understand if someone chooses to indulge in their addiction, and thus you will always expend willpower to choose sobriety. But willpower is weak, and chances are, you will eventually fail.  
 
