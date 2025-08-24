@@ -1,0 +1,31 @@
+---
+// as of 2025-08-23, migrating my blogs from /blog/blog to /blog
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'appletv' } },
+    { params: { slug: 'bits-std-cpp' } },
+    { params: { slug: 'cpp-icpc' } },
+    { params: { slug: 'difficulty-is-the-name-of-the-game' } },
+    { params: { slug: 'fourth-post' } },
+    { params: { slug: 'hope-is-like-a-feather' } },
+    { params: { slug: 'opencv-windows' } },
+    { params: { slug: 'resetting-the-dac-x6' } },
+    { params: { slug: 'third-post' } },
+    { params: { slug: 'upgrading-windows-packages' } },
+    { params: { slug: 'you-are-the-god-of-time' } },
+    { params: { slug: '/' } },
+    { params: { slug: '2025-08-23-allen-carr-pornography' } }
+  ]
+}
+
+// This file catches all old URLs and redirects them permanently.
+
+// 1. Get the part of the URL that came after "/blog/blog/"
+const { slug } = Astro.params
+
+// 2. Construct the new, correct URL
+const newUrl = slug ? `/blog/${slug}` : `/blog`
+
+// 3. Issue a 301 redirect to the new URL
+return Astro.redirect(newUrl, 301)
+---
