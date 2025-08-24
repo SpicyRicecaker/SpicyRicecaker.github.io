@@ -20,3 +20,5 @@ pnpm-debug.log*
 
 /bun.lockb
 /pnpm-lock.yaml
+
+.astro
