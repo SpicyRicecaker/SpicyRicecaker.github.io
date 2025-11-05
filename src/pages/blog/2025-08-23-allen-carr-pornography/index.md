@@ -6,6 +6,9 @@ pubDate: "Aug 17 2025"
 # heroImage: "/placeholder-hero.jpg"
 ---
 
+> Update: Some of the stuff in this article I no longer believe in. I don't think Allen Carr's method is the full solution. Will post a new blog soon with new ideas. 
+
+
 Allen Carr's method is the answer, and willpower is weak.
 
 What finally made Allen Carr's method click for me is the analogy he made in his [bbc interview](https://youtu.be/0TL2Vh7goJc?si=FMdCuWvqB0yFxElq). I'm going to try to explain his idea in my own way, but I highly encourage you to check out his actual video.
