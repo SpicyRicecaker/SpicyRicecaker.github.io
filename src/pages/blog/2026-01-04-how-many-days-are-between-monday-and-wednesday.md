@@ -1,0 +1,65 @@
+---
+layout: "../../layouts/BlogPost.astro"
+title: "How Many Days of the Week are Between Wednesday and Friday?"
+description: "Explanation of Alexander Grothiendeck's Algebraic Geometry and How It Can Be Used in Everyday Life"
+pubDate: "January 4 2026"
+# heroImage: "/placeholder-hero.jpg"
+---
+
+From first grade all the way to my final year of college, I have always been confused by the questions 
+
+1) How many days of the week are between Wednesday and Friday?
+2) How many integers are between 3 and 9? 
+3) We have three pixels side by side, numbered 1, 2, and 3. what is the distance (in pixels) between pixel 1 and 3?
+
+At first glance, for question 1, it would appear that the answer is simply 5-3 = 2 days. This is the absolute time difference, yes. But upon glancing at a calendar, it becomes obvious there's only one day between Wednesday and Friday, and that is Thursday. Why do we subtract by 1 day to find the number of days between Wednesday and Friday, when the absolute time difference is clearly 2 days?
+
+Question 2 is even more confusing. The first solution is to subtract 3 from 9, and get 6. 6 is the absolute difference between 3 and 9. However, when we list the numbers out, we get 4, 5, 6, 7, and 8, which is only 5 numbers. Again, we find that *there are only 5 numbers between 3 and 9*, yet *the absolute difference is 6 (units)*.
+
+Question 3 perhaps best illustrates the current problem. Pixel 1 is at location 1. Pixel 3 is at location 3. From physics, we know that the difference in distance between an object at 1m and 3m is 3m-1m=2m.
+
+```
+p1  p2  p3
+x   x   x
+```
+
+However, clearly when we look at the above diagram, we see that there is only 1 pixel between pixel 1 and pixel 3.
+
+<!-- However, the following types of questions have made a ton of intuitive sense to me: -->
+<!-- 4) What is the distance between Bob, standing at location 1m, and Alice, standing at location 3m? -->
+<!---->
+<!-- For these types of physics questions, absolute distance is simply a subtraction. -->
+
+What is going on here? Why is there a difference between the number of days between two days and the time between the two days? Why is there a difference between the number of integers between two integers, and their absolute difference? Why is there only one pixel between pixel 3 and 1, yet the absolute difference is 2 pixels?
+
+The idea I present is one originally proposed by Alexander Grothiendeck [2] in his study of Algebraic Geometry, and paraphrased to me in a helpful manner by a Reddit user [1].
+
+It is the idea that we can **probe** the world with more than just **points**: we can probe them with **shapes**.
+
+When we probe with shapes, there is a difference between the location of the shape in the world (which is always a point), and the number of probes you can fit between two shapes in that distance.
+
+Question 3 is the best easily understood example. Our probe is a pixel, and the space we are probing is in units of pixels. Where is the location of the pixel 1? Because location must always a point, *we can choose* where the location of the pixel is. Imagine a dot, or pivot at the center of each pixel, where the rest of the pixel is located relative to. 
+
+Now pixel 1 is at 1 pixel, and the lcoatin of pixel 3 can be at 3 pixels, so the distance between them is 2 pixels, which we've already calculated. But when we ask for the number of pixels between pixel 1 and pixel 3, then suddenly the *size of the probe* matters. Pixel 1 extends 0.5 pixels to the right and left of pixel location 1, and so does pixel 3. So between the two probes, you can only fit one probe, pixel 2 (distance - padding of right of first probe - padding of left of third probe). 
+
+We can attempt the same problem again, supposing the pivot position of each pixel is at the top left corner. Suppose pixel 1 is at location 0 pixels, then pixel 3 would be at location 2 pixels, their distance is 2 pixels once again, but because pixel 1 extends 1 pixel to the right, (distance - padding of right of first probe - padding of left of third probe) = (2 pixels - 1 pixel - 0) = 1 pixel.
+
+Now looking at question 2 and question 1, we see that what we assumed were *point probes*, i.e. days and integers, are actually themselves *shape probes*. Wednesday and Friday are probes with a size of 1 day each, so while their distance is indeed 2 days, one can only fit 1 day of the week between them due to the size of the probe.
+
+This is especially surprising with question 2, because normally we picture the locations of the numbers on the line as points, which we draw as lines, but when we ask for the number of numbers between two points on the number line, the size of the probe matters.
+
+---
+
+Formally speaking, suppose the world exists in a coordinate space X, and our probe can be described by a set of points T. Then one "point sample" is a function f, that maps the probe T to the coordinate space X, f: T -> X. The outside shape of any geometric object can be partially described by the set of all valid "point samples" f for **any** given probe, where the projected probe (varying in locations and rotation) does not intersect with the object in question.
+
+References:
+
+[1] (reddit comment)
+
+>
+>
+>
+
+[2] Harvests and Sowings by Alexander Grothiendeck
+
+[3] Vector Physics
